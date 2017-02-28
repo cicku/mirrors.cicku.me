@@ -1,0 +1,61 @@
+30 8 * * * /usr/bin/rsync -avH --delete-after --delay-updates rsync://mirrors.tuna.tsinghua.edu.cn/ctex /mirrors/ctex/
+
+30 6 * * * /usr/bin/rsync -av --delete-after --delay-updates --timeout=20 --contimeout=60 ftp.halifax.rwth-aachen.de::kali-images /mirrors/kali-images
+
+30 */1 * * * /usr/bin/rsync -av --delete-after --delay-updates --timeout=20 --contimeout=60 rsync://eu.download.openvz.org/openvz-download /mirrors/openvz
+
+15 7,13,19,23 * * * /usr/bin/rsync -avz --delete-after --delay-updates --safe-links rsync.apache.org::apache-dist /mirrors/apache
+
+#*/10 */1 * * * /usr/bin/rsync -rtlvH --delete-after --delay-updates --safe-links --timeout=20 --contimeout=60 rsync://archlinux.polymorf.fr/archlinux/ /mirrors/archlinux/
+
+*/10 */1 * * * /usr/bin/rsync -rtlvH --delete-after --delay-updates --safe-links --timeout=20 --contimeout=60 rsync://mirror.f4st.host/archlinux/ /mirrors/archlinux/
+
+40 */5 * * * /usr/bin/rsync -av --delete-after --delay-updates --timeout=20 --contimeout=60 rsync://mirror.slitaz.org/slitaz /mirrors/slitaz
+
+45 */6 * * * /usr/bin/rsync -avH --exclude-from=/home/cawk/mirrors/exclude/epel-exclude.lst --numeric-ids --delete-excluded --delete-after --delay-updates --timeout=20 --contimeout=20 rsync://mirror.23media.de/epel /mirrors/epel
+
+25 */6 * * * /usr/bin/rsync -avz --delete-after --delay-updates --safe-links --timeout=20 --contimeout=20 rsync.apache.org::apache-dist /mirrors/apache
+
+50 */12 * * * /usr/bin/rsync -avH --delete-excluded --delete-after --delay-updates --exclude-from=/home/cawk/mirrors/exclude/rpmfusion-exclude.lst --timeout=20 --contimeout=20 rsync://download1.rpmfusion.org/rpmfusion/ /mirrors/rpmfusion/
+
+30 3,9,15,21 * * * /usr/bin/rsync -avH --delete-after --delay-updates --timeout=20 --contimeout=60 eu-msync.centos.org::CentOS /mirrors/centos/
+
+5 5,11,17,23 * * * /usr/bin/rsync -avH  --delete-after --delay-updates --timeout=20 --contimeout=60 rsync://mirror.chpc.utah.edu/pub/centos-altarch /mirrors/
+ 
+40 07,19 * * * /usr/bin/rsync -av --delete-after --delay-updates --timeout=20 --contimeout=60 rsync://rsync.salixos.org/salix /mirrors/salix/
+
+45 2,14 * * * /usr/bin/rsync -av --delete-after --delay-updates --timeout=20 --contimeout=60 rsync.deepin.com::deepin/ /mirrors/deepin/
+
+0 15 * * * /usr/bin/rsync -av --delete-excluded --delete-after --delay-updates --timeout=20 --contimeout=20 --exclude-from=/home/cawk/mirrors/exclude/deepin-cd-exclude.lst rsync.deepin.com::releases/ /mirrors/deepin-cd/
+
+30 */1 * * * /usr/bin/rsync -av --delete-after --delay-updates --timeout=20 --contimeout=60 rsync.chakraos.org::packages /mirrors/chakra
+
+0 3 * * * /usr/bin/rsync -avPSH --delete-excluded --delete-after --delay-updates --timeout=20 --contimeout=60 --exclude-from=/home/cawk/mirrors/exclude/slackware-exclude.lst rsync://ftp.slackware.com/slackware/ /mirrors/slackware/
+
+15 */12 * * * /usr/bin/rsync -avxP --delete-after --delay-updates --timeout=20 --contimeout=60 rsync.libreboot.org::mirrormirror /mirrors/libreboot/
+
+10 */2 * * * /usr/bin/rsync -aHSv --delete-excluded --delete-after --delay-updates --exclude-from=/home/cawk/mirrors/exclude/mageia-exclude.lst --contimeout=60 rsync://distrib-coffee.ipsl.jussieu.fr/mageia/ /mirrors/mageia/
+
+55 */8 * * * /usr/bin/rsync -aHv --delete-excluded --delete-after --delay-updates --exclude-from=/home/cawk/mirrors/exclude/oracle-exclude.lst --timeout=20 --contimeout=60 zeniv.linux.org.uk::distributions/enterprise/ /mirrors/oracle/
+
+30 4,20 * * * /usr/bin/rsync -av --delete --delete-after --timeout=30 --contimeout=60 rsync://cpan-rsync.perl.org/CPAN/ /mirrors/CPAN/
+
+45 8,20 * * * /usr/bin/rsync -rtlzv --delete-after --delay-updates --timeout=20 --contimeout=60 cran.r-project.org::CRAN /mirrors/CRAN/
+
+30 1,13 * * * /usr/bin/rsync -rltpHSv --delete-excluded --delete-after --delay-updates --timeout=20 --contimeout=60 rsync://ftp.hawo.stw.uni-erlangen.de/gnu /mirrors/gnu
+
+45 5,17 * * * /usr/bin/rsync -rltpHSv --delete-excluded --delete-after --delay-updates --timeout=20 --contimeout=60 rsync://dl.sv.gnu.org/releases/ /mirrors/savannah
+
+35 */2 * * * /usr/bin/rsync -aPv --delete-after --delay-updates --timeout=20 --contimeout=60 rsync://rsync.belnet.be/sabayon/ /mirrors/sabayon/
+
+15 */6 * * * /usr/bin/rsync -av --delete-after --delay-updates --timeout=20 --contimeout=60 rsync://ftp.halifax.rwth-aachen.de/manjaro/ /mirrors/manjaro/
+
+40 */4 * * * /usr/bin/rsync -auHv --delete-after --delay-updates --timeout=20 --contimeout=60 rsync://rsync.alpinelinux.org/alpine/ /mirrors/alpine/
+
+30 6,18 * * * /usr/bin/rsync -av --delete-after --delay-updates --timeout=20 --contimeout=60 rsync-packages.linuxmint.com::packages /mirrors/linuxmint/
+
+0 1,16 * * * /usr/bin/rsync -av --delete-after --delay-updates --timeout=20 ftp.ibiblio.org::ldp_mirror /mirrors/LDP/
+
+#0 0 */2 * * /usr/bin/certbot renew --quiet
+
+30 */12 * * * /usr/bin/du -chd1 --exclude=.well-known --exclude=static /mirrors | sort -hr | awk 'END{printf"\nLast Checked: ";system("date")}1' > /mirrors/disk-usage.txt 
